@@ -1,0 +1,12 @@
+.like { 
+    background-image: url("../../images/like.svg");
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 22px;
+    height: 19px;
+    padding: 0;
+    border: 0;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+}

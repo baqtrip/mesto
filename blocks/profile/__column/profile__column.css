@@ -1,0 +1,25 @@
+.profile__column {
+    display: flex;
+    max-width: 330px;
+    width: 100%;
+    flex-wrap: wrap;
+    column-gap: 17px;
+    row-gap: 20px;
+    align-items: flex-end;
+}
+
+@media (max-width: 900px) {
+    .profile__column {
+        max-width: 285px;
+        
+    }
+ } 
+
+ @media (max-width: 660px) {
+    .profile__column {
+       justify-content: center;
+       align-items: center;
+       column-gap: 10px;
+    row-gap: 14px;
+    }
+ } 
