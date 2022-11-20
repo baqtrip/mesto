@@ -1,3 +1,20 @@
 .popup {
-    display: none;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    left: 38%;
+    top: 38%;
+    border-radius: 10px;
+    flex-direction: column;
+    background-color: white;
+    max-width: 430px;
+    width: 100%;
+    min-height: 330px;
+    transition: 0.5s;
+    visibility: hidden;
+}
+
+.popup_openned {
+    transition: visibility .5s ease-in-out, opacity .5s ease-in-out;
 }
