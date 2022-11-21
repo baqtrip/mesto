@@ -75,18 +75,23 @@
             <p class="footer__copyright">&COPY; 2020 Mesto Russia</p>
         </section>
     </main>
-    <section class="popup popup_opened">
-        <fieldset class='form'>
-            <h1 class="popup__title">Редактировать профиль</h1>
-            <label for='name' class='form__label'>Жак-Ив Кусто</label>
-            <input type='text' class='form__item' id='name' name='name' placeholder='Жак-Ив Кусто' required>
-            <label for='about' class='form__label'>Исследователь океана</label>
-            <input type='text' class='form__item' id='about' name='about' placeholder='Исследователь океана' required>
-            <button class="popup__save" type="button" aria-label="сохранить изменения">Сохранить</button>
-        </fieldset>
-
+    <section class="popup popup_is-opened">
+        <div class="popup__container">
+            <button class="popup__close" type="button" aria-label="Закрыть попап"></button>
+            <div class="popup__content">
+                <fieldset class='form'>
+                    <h1 class="popup__title">Редактировать профиль</h1>
+                    <label for='name' class='form__label'>Жак-Ив Кусто</label>
+                    <input type='text' class='form__item' id='name' name='name' placeholder='Жак-Ив Кусто' required>
+                    <label for='about' class='form__label'>Исследователь океана</label>
+                    <input type='text' class='form__item' id='about' name='about' placeholder='Исследователь океана'
+                        required>
+                    <button class="popup__save" type="button" aria-label="сохранить изменения">Сохранить</button>
+                </fieldset>
+            </div>
+        </div>
     </section>
-    <script src="./script.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>

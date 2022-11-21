@@ -1,5 +1,5 @@
 @import url("../vendor/normalize.css");
-@import url("../blocks/popup/popup.css");
+
 @import url("../vendor/fonts.css");
 @import url("../blocks/header/header.css");
 @import url("../blocks/page/page.css");
@@ -23,7 +23,11 @@
 @import url("../blocks/header/__logo/header__logo.css");
 @import url("../blocks/main/main.css");
 @import url("../blocks/footer/__copyright/footer__copyright.css");
-@import url("../blocks/popup/__save/popup__save.css");
-@import url("../blocks/popup/__title/popup__title.css");
+
 @import url("../blocks/form/__item/form__item.css");
 @import url("../blocks/form/form.css");
+@import url("../blocks/popup/popup.css");
+@import url("../blocks/popup/__save/popup__save.css");
+@import url("../blocks/popup/__title/popup__title.css");
+@import url("../blocks/popup/_is-opened/popup_is-opened.css");
+@import url("../blocks/popup/__close/popup__close.css");
