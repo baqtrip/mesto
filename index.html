@@ -79,15 +79,18 @@
         <div class="popup__container">
             <button class="popup__close" type="button" aria-label="Закрыть попап"></button>
             <div class="popup__content">
-                <fieldset class='form'>
-                    <h1 class="popup__title">Редактировать профиль</h1>
-                    <label for='name' class='form__label'>Жак-Ив Кусто</label>
-                    <input type='text' class='form__item' id='name' name='name' placeholder='Жак-Ив Кусто' required>
-                    <label for='about' class='form__label'>Исследователь океана</label>
-                    <input type='text' class='form__item' id='about' name='about' placeholder='Исследователь океана'
-                        required>
+                <form class='form'>
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <fieldset class="form__fieldset">
+                        <!-- <label for='name' class='form__label'>Жак-Ив Кусто</label> -->
+                        <input type='text' class='form__item' id='profile__title' name='profile__title'
+                            placeholder='Жак-Ив Кусто' required>
+                        <!-- <label for='about' class='form__label'>Исследователь океана</label> -->
+                        <input type='text' class='form__item' id='profile__subtitle' name='profile__subtitle'
+                            placeholder='Исследователь океана' required>
+                    </fieldset>
                     <button class="popup__save" type="button" aria-label="сохранить изменения">Сохранить</button>
-                </fieldset>
+                </form>
             </div>
         </div>
     </section>

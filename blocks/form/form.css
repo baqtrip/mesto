@@ -1,9 +1,10 @@
 .form {
   display: flex;
   flex-direction: column;
-  border: 0 solid;
+  /* border: 0 solid; */
   padding: 34px 36px 37px 36px;
   justify-content: center;
   max-width: 358px;
   width: 100%;
+
 }
