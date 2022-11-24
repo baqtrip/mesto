@@ -1,4 +1,4 @@
-.like { 
+.like {
     background-image: url("../../images/like.svg");
     background-repeat: no-repeat;
     background-color: transparent;
@@ -9,4 +9,8 @@
     object-fit: cover;
     object-position: center;
     cursor: pointer;
+}
+
+.like:hover {
+    opacity: 0.5;
 }

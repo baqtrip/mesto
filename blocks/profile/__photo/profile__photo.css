@@ -9,11 +9,11 @@
     .profile__photo {
         max-width: 120px;
     }
- } 
+}
 
- @media (max-width: 660px) {
+@media (max-width: 660px) {
     .profile__photo {
         margin: 0 0 22px;
         max-width: 169px;
     }
- } 
+}

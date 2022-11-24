@@ -17,13 +17,11 @@
         <section class="profile">
             <img class="profile__photo" src="./images/image.jpg" alt="Фото профиля.">
             <div class="profile__column">
-                <h1 class="profile__title">Жак-Ив Кусто</h1>
+                <h2 class="profile__title">Жак-Ив Кусто</h2>
                 <button class="profile__edit" type="button" aria-label="Редактировать профиль"></button>
                 <p class="profile__subtitle">Исследователь океана</p>
             </div>
-
             <button class="profile__add" type="button" aria-label="Добавить фото"></button>
-
         </section>
         <section class="elements">
             <ul class="cards">
@@ -83,13 +81,13 @@
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <fieldset class="form__fieldset">
                         <!-- <label for='name' class='form__label'>Жак-Ив Кусто</label> -->
-                        <input type='text' class='form__item' id='profile__title' name='profile__title'
-                            placeholder='Жак-Ив Кусто' required>
+                        <input type='text' class='form__item' id='input-name' name='input-name' placeholder="Ваше Имя"
+                            required>
                         <!-- <label for='about' class='form__label'>Исследователь океана</label> -->
-                        <input type='text' class='form__item' id='profile__subtitle' name='profile__subtitle'
-                            placeholder='Исследователь океана' required>
+                        <input type='text' class='form__item' id='input-job' name='input-job'
+                            placeholder="Род деятельности" required>
                     </fieldset>
-                    <button class="popup__save" type="button" aria-label="сохранить изменения">Сохранить</button>
+                    <button class="popup__save" type="submit" aria-label="сохранить изменения">Сохранить</button>
                 </form>
             </div>
         </div>
