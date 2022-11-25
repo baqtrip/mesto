@@ -19,7 +19,8 @@
 @media (max-width: 750px) {
     .profile__title {
         font-size: 30px;
-        max-width: 310px;
+        max-width: 315px;
+
     }
 }
 
@@ -27,6 +28,6 @@
     .profile__title {
         font-size: 27px;
         line-height: 33px;
-        max-width: 225px;
+        max-width: 252px;
     }
 }
