@@ -1,6 +1,6 @@
 .profile__column {
     display: flex;
-    max-width: 330px;
+    max-width: 500px;
     width: 100%;
     flex-wrap: wrap;
     column-gap: 17px;
@@ -10,16 +10,29 @@
 
 @media (max-width: 900px) {
     .profile__column {
-        max-width: 285px;
-        
-    }
- } 
+        max-width: 455px;
 
- @media (max-width: 660px) {
-    .profile__column {
-       justify-content: center;
-       align-items: center;
-       column-gap: 10px;
-    row-gap: 14px;
     }
- } 
+}
+
+@media (max-width: 750px) {
+    .profile__column {
+        max-width: 450px;
+        justify-content: center;
+        align-items: center;
+        column-gap: 10px;
+        row-gap: 14px;
+    }
+}
+
+@media (max-width: 660px) {
+    .profile__column {
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 400px) {
+    .profile__column {
+        max-width: 300px;
+    }
+}

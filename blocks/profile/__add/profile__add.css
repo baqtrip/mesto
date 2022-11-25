@@ -1,6 +1,6 @@
 .profile__add {
-    margin: 0 0 10px auto;
-    background: url("../../../images/Vector\ add.png") center/20px no-repeat transparent;
+    margin: 0 0 20px auto;
+    background: url("../../../images/Vectoradd.png") center/20px no-repeat transparent;
     max-width: 150px;
     width: 100%;
     height: 50px;
@@ -12,18 +12,25 @@
 }
 
 .profile__add:hover {
- opacity: 0.6; 
+    opacity: 0.6;
 }
 
-@media (max-width: 660px) {
+@media (max-width: 850px) {
+    .profile__add {
+        max-width: 120px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 750px) {
     .profile__add {
         max-width: 340px;
         margin: 36px auto 0;
     }
- } 
+}
 
- @media (max-width: 330px) {
+@media (max-width: 330px) {
     .profile__add {
         max-width: 382px;
     }
- } 
+}

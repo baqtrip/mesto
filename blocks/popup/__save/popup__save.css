@@ -5,8 +5,21 @@
   background-color: black;
   color: white;
   border-radius: 2px;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
 }
 
 .popup__save:hover {
   opacity: 0.8;
+}
+
+@media (max-width: 525px) {
+  .popup__save {
+    margin-top: 45px;
+    padding: 14px 82px;
+    max-width: 238px;
+    font-size: 14px;
+    line-height: 17px;
+  }
 }

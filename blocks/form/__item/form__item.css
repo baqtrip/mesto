@@ -3,5 +3,11 @@
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   max-width: 354px;
   width: 100%;
-  
+}
+
+@media (max-width: 525px) {
+  .form__item {
+    max-width: 238px;
+    padding-bottom: 13px;
+  }
 }

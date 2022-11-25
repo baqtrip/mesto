@@ -14,8 +14,15 @@
     opacity: 0.6;
 }
 
-@media (max-width: 660px) {
+@media (max-width: 750px) {
     .profile__edit {
-margin: 5px 0 0 0;
+        margin: 4px 0 0 0;
     }
- } 
+}
+
+@media (max-width: 400px) {
+    .profile__edit {
+        width: 18px;
+        height: 18px;
+    }
+}
