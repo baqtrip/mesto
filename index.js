@@ -10,14 +10,13 @@ let profileName = formElement.querySelector('#input-name');
 let profileJob = formElement.querySelector('#input-job'); 
 
 const openPopup = function () {
-  popupElement.classList.add('popup_is-opened');
+  popupElement.classList.add('popup_opened');
   profileName.value = nameInput.textContent; 
   profileJob.value = jobInput.textContent;
 }
 
 const closePopup = function() {
-  popupElement.classList.remove('popup_is-opened');
-  // popupSave.classList.remove('popup_is-opened');
+  popupElement.classList.remove('popup_opened');
 }
 
 function formSubmitHandler (evt) {
