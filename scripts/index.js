@@ -5,28 +5,30 @@ const nameInput = document.querySelector('.profile__title');
 const jobInput = document.querySelector('.profile__subtitle');
 
 let formElement = document.querySelector('.form');
-// let popupSave = formElement.querySelector('.popup__save');
 let profileName = formElement.querySelector('#input-name'); 
 let profileJob = formElement.querySelector('#input-job'); 
 
-const openPopup = function () {
+
+function openPopup() {
   popupElement.classList.add('popup_opened');
-  profileName.value = nameInput.textContent; 
+  profileName.value = nameInput.textContent;
   profileJob.value = jobInput.textContent;
 }
 
-const closePopup = function() {
+
+function closePopup() {
   popupElement.classList.remove('popup_opened');
 }
 
 function formSubmitHandler (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.  
+
   nameInput.textContent = profileName.value;   
   jobInput.textContent = profileJob.value;
-
+  
+  closePopup();
 }
 
-formElement.addEventListener('submit', formSubmitHandler); 
-formElement.addEventListener('submit', closePopup); 
+formElement.addEventListener('submit', formSubmitHandler);  
 popupOpenButtonElement.addEventListener('click', openPopup);
 popupCloseButtonElement.addEventListener('click', closePopup);

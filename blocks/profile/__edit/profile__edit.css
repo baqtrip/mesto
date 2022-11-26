@@ -8,6 +8,7 @@
     box-sizing: border-box;
     cursor: pointer;
     transition: opacity .1s linear;
+
 }
 
 .profile__edit:hover {

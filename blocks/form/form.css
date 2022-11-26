@@ -1,11 +1,10 @@
 .form {
   display: flex;
   flex-direction: column;
-
   padding: 34px 36px 37px;
-
+  background-color: #fff;
   max-width: 430px;
-
+  border-radius: 10px;
   box-sizing: border-box;
 }
 

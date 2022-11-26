@@ -1,20 +1,13 @@
 .popup {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    background-color: white;
-    max-width: 430px;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    max-height: 330px;
-    transition: 0.5s;
-    box-sizing: border-box;
+    min-width: 282px;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .5);
     display: none;
-}
-
-@media (max-width: 525px) {
-    .popup {
-        max-width: 282px;
-    }
+    box-sizing: border-box;
 }

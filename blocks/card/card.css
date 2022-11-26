@@ -5,16 +5,18 @@
     border-radius: 10px;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
     flex-grow: 1;
+
 }
 
 @media (max-width: 900px) {
     .card {
         max-width: 430px;
     }
- }
+}
 
- @media (max-width: 600px) {
+@media (max-width: 600px) {
     .card {
         max-width: 560px;
+        height: 361px;
     }
- }
+}

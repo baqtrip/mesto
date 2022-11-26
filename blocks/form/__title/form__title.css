@@ -1,4 +1,4 @@
-.popup__title {
+.form__title {
   margin: 0;
   padding-bottom: 54px;
   color: black;
@@ -8,7 +8,7 @@
 }
 
 @media (max-width: 525px) {
-  .popup__title {
+  .form__title {
     max-width: 238px;
     font-size: 18px;
     line-height: 22px;
