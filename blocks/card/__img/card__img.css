@@ -8,7 +8,7 @@
     object-position: center;
     max-height: 282px;
     height: 100%;
-
+    cursor: pointer;
 }
 
 @media (max-width: 900px) {

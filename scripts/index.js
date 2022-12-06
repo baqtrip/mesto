@@ -35,15 +35,14 @@ function generateCard(dataCard) {
     evt.target.classList.toggle('like_active');
     console.log('поставили лайк')
   });
-  trash.addEventListener('click', function() {
+  trash.addEventListener('click', function() { //Удаляем карточки
     newCard.remove();
     console.log('удалили карточку')
   });
   link.addEventListener('click', function (evt) {
-   console.log(popupWindowTemplate);
     const popupWindow = popupWindowTemplate.cloneNode(true);
-    const popupImg = popupWindow.querySelector('.popup-img');
-    const popupTitle = popupWindow.querySelector('.pop__title');
+    const popupImg = popupWindow.querySelector('.popup__img');
+    const popupTitle = popupWindow.querySelector('.popup__title');
     const popupClose = popupWindow.querySelector('.popup__close')
     
     popupClose.addEventListener('click', function () {
@@ -74,14 +73,19 @@ let formElement = document.querySelector('.form');
 let profileName = formElement.querySelector('#input-name');
 let profileJob = formElement.querySelector('#input-job');
 
+
+
 //Открыть попап карточки
 function openPopupCard() {
   popupElementCard.classList.add('popup_opened');
+  popupElementCard.classList.add('popup_transition');
 }
 popupOpenButtonCard.addEventListener('click', openPopupCard);
 //Закрыть попап карточки
 function closePopupCard() {
   popupElementCard.classList.remove('popup_opened');
+  popupElementCard.classList.remove('popup_transition');
+
 }
 popupCloseButtonElements.forEach (function(btn) {
   btn.addEventListener('click', function() {
@@ -93,13 +97,14 @@ popupCloseButtonElements.forEach (function(btn) {
 //Открыть попап профиля
 function openPopupProfile() {
   popupElementProfile.classList.add('popup_opened');
-  
+  popupElementProfile.classList.add('popup_transition');
   profileName.value = nameInput.textContent;
   profileJob.value = jobInput.textContent;
 }
 //Закрыть попап профиля
 function closePopupProfile() {
   popupElementProfile.classList.remove('popup_opened');
+  popupElementProfile.classList.remove('popup_transition');
 }
 
 
