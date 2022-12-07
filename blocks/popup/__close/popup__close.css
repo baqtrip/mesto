@@ -11,6 +11,30 @@
    cursor: pointer;
  } */
 
+ .img__content .popup__close {
+   position: absolute;
+   top: -40px;
+   right: -40px;
+ }
+
+ @media (max-width: 525px) {
+   .img__content .popup__close {
+     width: 25px;
+     height: 25px;
+     right: -25px;
+     top: -35px;
+   }
+ }
+
+ @media (max-width: 320px) {
+   .img__content .popup__close {
+     width: 20px;
+     height: 20px;
+     right: -25px;
+     top: -35px;
+   }
+ }
+
  .popup__close {
    background: url("../../../images/close.svg") no-repeat;
    width: 32px;

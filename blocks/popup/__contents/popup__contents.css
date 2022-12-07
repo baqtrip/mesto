@@ -1,4 +1,4 @@
-.img__content {
+.popup__contents {
   display: flex;
   flex-direction: column;
   max-width: 75vw;

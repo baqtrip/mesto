@@ -1,16 +1,31 @@
+// Получение поп-ап-окна с фото
+
+const popupCardWindow = document.querySelector(".popup-card__window");
+
+// Кнопка закрытия поп-ап окна с фото
+
+const popupClose = popupCardWindow.querySelector("button");
+
+// Вешаем обработчик события на закрытие поп-ап окна с фото
+
+popupClose.addEventListener("click", function () {
+  popupCardWindow.classList.toggle("popup-card__window_hidden");
+});
+
+
 //Кнопки
 const popupElementProfile = document.querySelector('.popup-profile');  
 const popupCloseButtonElements = document.querySelectorAll('.popup__close');
 const popupElementCard = document.querySelector('.popup-card');
 const popupOpenButtonCard = document.querySelector('.profile__add');
 const popupOpenButtonProfile = document.querySelector('.profile__edit');
-
+const popupImageClose = document.querySelectorAll('.popup__close');
 //Не кнопки
 const nameInput = document.querySelector('.profile__title');
 const jobInput = document.querySelector('.profile__subtitle');
 const cardElement = document.querySelector('.card')
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.card');
-const popupWindowTemplate = document.querySelector('#popup-card').content.querySelector('.popup-card__window');
+// const popupWindowTemplate = document.querySelector('.popup-card__window');   
 //ФУНКЦИЯ ДЛЯ СОЗДАНИЯ НОВЫХ КАРТОЧЕК И РАБОТА С НИМИ
 function addCard(evt) { 
   evt.preventDefault(); //сброс дефолт поведение
@@ -39,19 +54,11 @@ function generateCard(dataCard) {
     newCard.remove();
     console.log('удалили карточку')
   });
-  link.addEventListener('click', function (evt) {
-    const popupWindow = popupWindowTemplate.cloneNode(true);
-    const popupImg = popupWindow.querySelector('.popup__img');
-    const popupTitle = popupWindow.querySelector('.popup__title');
-    const popupClose = popupWindow.querySelector('.popup__close')
-    
-    popupClose.addEventListener('click', function () {
-      popupWindow.remove()
-    })
-    
-    popupImg.src = dataCard.link;
-    popupTitle.textContent = dataCard.name;
-    document.body.prepend(popupWindow);
+
+  link.addEventListener("click", function (evt) {
+    popupCardWindow.classList.remove("popup-card__window_hidden");
+    popupCardWindow.querySelector("img").src = dataCard.link;
+    popupCardWindow.querySelector(".popup__title").textContent = dataCard.name;
   });
 
       return newCard; //что нам отдают на выходе
@@ -117,3 +124,7 @@ function formSubmitHandler (evt) {
 
 formElement.addEventListener('submit', formSubmitHandler);
 popupOpenButtonProfile.addEventListener('click', openPopupProfile);
+
+
+
+
