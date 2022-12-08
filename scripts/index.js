@@ -1,6 +1,7 @@
 // Получение поп-ап-окна с фото
 
-const popupCardWindow = document.querySelector(".popup-card__window");
+// const popupCardWindow = document.querySelector(".popup-card__window");
+const popupCardWindow = document.querySelector(".popup-contents--vissible");
 
 // Кнопка закрытия поп-ап окна с фото
 
@@ -9,7 +10,7 @@ const popupClose = popupCardWindow.querySelector("button");
 // Вешаем обработчик события на закрытие поп-ап окна с фото
 
 popupClose.addEventListener("click", function () {
-  popupCardWindow.classList.toggle("popup-card__window_hidden");
+  popupCardWindow.classList.toggle("popup-contents--hidden");
 });
 
 
@@ -24,8 +25,7 @@ const popupImageClose = document.querySelectorAll('.popup__close');
 const nameInput = document.querySelector('.profile__title');
 const jobInput = document.querySelector('.profile__subtitle');
 const cardElement = document.querySelector('.card')
-const cardTemplate = document.querySelector('#card-template').content.querySelector('.card');
-// const popupWindowTemplate = document.querySelector('.popup-card__window');   
+const cardTemplate = document.querySelector('#card-template').content.querySelector('.card'); 
 //ФУНКЦИЯ ДЛЯ СОЗДАНИЯ НОВЫХ КАРТОЧЕК И РАБОТА С НИМИ
 function addCard(evt) { 
   evt.preventDefault(); //сброс дефолт поведение
@@ -56,9 +56,9 @@ function generateCard(dataCard) {
   });
 
   link.addEventListener("click", function (evt) {
-    popupCardWindow.classList.remove("popup-card__window_hidden");
+    popupCardWindow.classList.remove("popup-contents--hidden");
     popupCardWindow.querySelector("img").src = dataCard.link;
-    popupCardWindow.querySelector(".popup__title").textContent = dataCard.name;
+    popupCardWindow.querySelector(".popup-contents__title").textContent = dataCard.name;
   });
 
       return newCard; //что нам отдают на выходе

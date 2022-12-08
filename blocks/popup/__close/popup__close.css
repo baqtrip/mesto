@@ -1,65 +1,61 @@
- /* .popup__close {
-   background: url("../../../images/close.svg") no-repeat;
-   width: 32px;
-   height: 32px;
-   background-size: contain;
-   border: 0;
-   position: absolute;
-   right: 29%;
-   top: 28%;
-   padding: 0;
-   cursor: pointer;
- } */
+.popup-contents__close {
+  background: url("../../../images/close.svg") no-repeat;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background-color: transparent;
+  background-size: contain;
+  border: 0;
+  position: absolute;
+  right: -38px;
+  top: -40px;
+  cursor: pointer;
+  transition: opacity .15s linear;
+}
 
- .img__content .popup__close {
-   position: absolute;
-   top: -40px;
-   right: -40px;
- }
+@media (max-width: 525px) {
+  .popup-contents__close {
+    width: 25px;
+    height: 25px;
+    right: -25px;
+    top: -35px;
+  }
+}
 
- @media (max-width: 525px) {
-   .img__content .popup__close {
-     width: 25px;
-     height: 25px;
-     right: -25px;
-     top: -35px;
-   }
- }
+@media (max-width: 320px) {
+  .popup-contents__close {
+    width: 20px;
+    height: 20px;
+    right: -25px;
+    top: -35px;
+  }
+}
 
- @media (max-width: 320px) {
-   .img__content .popup__close {
-     width: 20px;
-     height: 20px;
-     right: -25px;
-     top: -35px;
-   }
- }
-
- .popup__close {
-   background: url("../../../images/close.svg") no-repeat;
-   width: 32px;
-   height: 32px;
-   padding: 0;
-   background-color: transparent;
-   background-size: contain;
-   border: 0;
-   position: absolute;
-   right: -40px;
-   top: -40px;
-   cursor: pointer;
-   transition: opacity .15s linear;
- }
+.popup__close {
+  background: url("../../../images/close.svg") no-repeat;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background-color: transparent;
+  background-size: contain;
+  border: 0;
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  cursor: pointer;
+  transition: opacity .15s linear;
+}
 
 
- .popup__close:hover {
-   opacity: 0.6;
- }
+.popup__close:hover {
+  opacity: 0.6;
+}
 
- @media (max-width: 525px) {
-   .popup__close {
-     width: 20px;
-     height: 20px;
-     right: 1px;
-     top: -30px;
-   }
- }
+@media (max-width: 525px) {
+  .popup__close {
+    width: 20px;
+    height: 20px;
+    right: 1px;
+    top: -30px;
+  }
+}

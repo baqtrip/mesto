@@ -46,7 +46,6 @@
                     </fieldset>
                     <button class="form__save" type="submit" aria-label="сохранить изменения">Сохранить</button>
                 </form>
-
             </div>
         </div>
     </div>
@@ -80,13 +79,13 @@
         </li>
     </template>
 
-    <div class="popup-card__window popup-card__window_hidden">
-        <div class="popup__contents">
-            <div class="img__content ">
-                <img class="popup__img">
-                <h4 class="popup__title"></h4>
-                <button class="popup__close" type="button" aria-label="Закрыть попап"></button>
-            </div>
+    <div class="popup-contents--vissible popup-contents--hidden">
+        <div class="popup-contents">
+            <figure class="popup-contents__content">
+                <img class="popup-contents__img">
+                <figcaption class="popup-contents__title"></figcaption>
+                <button class="popup-contents__close" type="button" aria-label="Закрыть попап"></button>
+            </figure>
         </div>
     </div>
     <script src="./scripts/cards.js"></script>

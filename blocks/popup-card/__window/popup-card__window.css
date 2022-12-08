@@ -16,7 +16,7 @@
 } */
 
 
-.popup-card__window {
+.popup-contents--vissible {
   position: fixed;
   display: flex;
   justify-content: center;

@@ -1,5 +1,15 @@
-.img__content {
+/* .img__content {
   display: flex;
   flex-direction: column;
   max-width: 75vw;
-}
+  margin: 0;
+} */
+
+
+/* .popup-contents__content {
+  display: flex;
+  flex-direction: column;
+  max-width: 75vw;
+  margin: 0;
+  gap: 10px;
+} */
