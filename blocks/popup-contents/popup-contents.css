@@ -1,4 +1,5 @@
 .popup-contents {
+  position: relative;
   display: flex;
   flex-direction: column;
   max-width: 75vw;

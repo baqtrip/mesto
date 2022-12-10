@@ -1,4 +1,4 @@
-.popup-card {
+.popup {
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -11,27 +11,6 @@
     display: flex;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear;
     box-sizing: border-box;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-    z-index: 1;
-}
-
-.popup-profile {
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-width: 282px;
-    height: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
-    background-color: rgba(0, 0, 0, .5);
-    display: flex;
-    visibility: hidden;
-    opacity: 0;
-    z-index: 1;
-    transition: visibility 0s, opacity 0.5s linear;
-    box-sizing: border-box;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    z-index: 5;
 }

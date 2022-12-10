@@ -40,8 +40,8 @@
 @import url("../blocks/popup-contents/__content/popup-contents__content.css");
 @import url("../blocks/popup-card/__window/popup-card__window.css");
 @import url("../blocks/popup/_transition/popup_transition.css");
-@import url("../blocks/popup-card/__window/_hidden/popup-card__window_hidden.css");
+@import url("../blocks/popup-contents/--vissible/ ");
 @import url("../blocks/popup-contents/popup-contents.css");
-
-
+@import url("../blocks/popup-contents-vissible/popup-contents-vissible.css");
+@import url("../blocks/popup-contents-hidden/popup-contents-hidden.css");
 @import url("../blocks/img/__content/img__content.css");
