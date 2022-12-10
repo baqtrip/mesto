@@ -1,51 +1,61 @@
 // Получение поп-ап-окна с фото
 
-// const popupCardWindow = document.querySelector(".popup-card__window");
-const popupCardWindow = document.querySelector(".popup-contents-vissible");
+const popupCardWindow = document.querySelector(".popup-window");
 
 // Кнопка закрытия поп-ап окна с фото
 
-const popupClose = popupCardWindow.querySelector("button");
+const popupCloseWindow = popupCardWindow.querySelector(".popup__close");
 
 // Вешаем обработчик события на закрытие поп-ап окна с фото
 
-popupClose.addEventListener("click", function () {
-  popupCardWindow.classList.toggle("popup-contents-hidden");
-
+popupCloseWindow.addEventListener("click", function () {
+  popupCardWindow.classList.add("popup_opened");
+  popupCardWindow.classList.remove("popup_opened");
 });
+
+// Функция открытия и закрытия попапа
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+}
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+}
 
 
 //Кнопки
 const popupElementProfile = document.querySelector('.popup-profile');  
-// const popupCloseButtonElements = document.querySelectorAll('.popup__close');
+
 const popupElementCard = document.querySelector('.popup-card');
 const popupOpenButtonCard = document.querySelector('.profile__add');
 const popupOpenButtonProfile = document.querySelector('.profile__edit');
-
 
 const popupCloseButtonCard = popupElementCard.querySelector('.popup__close')
 const popupCloseButtonProfile =  popupElementProfile.querySelector('.popup__close')
 
 //Не кнопки
-const nameInput = document.querySelector('.profile__title');
-const jobInput = document.querySelector('.profile__subtitle');
+const profile = document.querySelector('.profile');
+const nameInput = profile.querySelector('.profile__title');
+const jobInput = profile.querySelector('.profile__subtitle');
 const cardElement = document.querySelector('.card')
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.card'); 
 //ФУНКЦИЯ ДЛЯ СОЗДАНИЯ НОВЫХ КАРТОЧЕК И РАБОТА С НИМИ
 function addCard(evt) { 
   evt.preventDefault(); //сброс дефолт поведение
-  const name = document.querySelector('#input-card-name').value;
-  const link = document.querySelector('#input-card-url').value;
+  const name = popupElementCard.querySelector('#input-card-name').value;
+  const alt = popupElementCard.querySelector('#input-card-name').value;
+  const link = popupElementCard.querySelector('#input-card-url').value;
     renderCard({
-      name, link  //если свойство === названию переменной, то : не нужна
+      name, alt, link  //если свойство === названию переменной, то : не нужна
   })
-  closePopupCard()
+  closePopup(popupElementCard);
 }
 
 function generateCard(dataCard) {
   const newCard = cardTemplate.cloneNode(true) //клонируем наши новые карточки
   const name = newCard.querySelector('.card__title'); //пусть забирает значения из тайтла
   name.textContent = dataCard.name;
+  const alt = newCard.querySelector('.card__img');
+  alt.link = dataCard.name;
   const link = newCard.querySelector('.card__img'); //пусть забирает значения из фоток
   link.src = dataCard.link;
   const likeButton = newCard.querySelector('.like')
@@ -61,8 +71,9 @@ function generateCard(dataCard) {
   });
 
   link.addEventListener("click", function (evt) {
-    popupCardWindow.classList.remove("popup-contents-hidden");
-    popupCardWindow.querySelector("img").src = dataCard.link;
+    popupCardWindow.classList.add("popup_opened");
+    popupCardWindow.querySelector(".popup-contents__img").src = dataCard.link;
+    popupCardWindow.querySelector(".popup-contents__img").alt = dataCard.name;
     popupCardWindow.querySelector(".popup-contents__title").textContent = dataCard.name;
   });
 
@@ -83,52 +94,41 @@ const formElement = document.querySelector('.form');
 const profileName = formElement.querySelector('#input-name');
 const profileJob = formElement.querySelector('#input-job');
 
-//Открыть попап карточки
-function openPopupCard() {
 
-  popupElementCard.classList.add('popup_opened');
-}
-popupOpenButtonCard.addEventListener('click', openPopupCard);
-//Закрыть попап карточки
-function closePopupCard() {
-  popupElementCard.classList.remove('popup_opened');
 
-  console.log('closePopupCard')
-}
-popupCloseButtonCard.addEventListener('click', closePopupCard);
-
-// popupCloseButtonElements.forEach (function(btn) {
-//   btn.addEventListener('click', function() {
-//     closePopupCard();
-//     closePopupProfile();
-//   })
-// })
-
-//Открыть попап профиля
-function openPopupProfile() {
-  popupElementProfile.classList.add('popup_opened');
+//ЗАКРЫТИЕ И ОТКРЫТИЕ ПОПАП ПРОФИЛЯ
+popupOpenButtonProfile.addEventListener('click', () => {
+  openPopup(popupElementProfile);
 
   profileName.value = nameInput.textContent;
   profileJob.value = jobInput.textContent;
-}
-//Закрыть попап профиля
-function closePopupProfile() {
-  popupElementProfile.classList.remove('popup_opened');
+});
 
-  console.log('closePopupProfile')
-}
-popupCloseButtonProfile.addEventListener('click', closePopupProfile);
+popupCloseButtonProfile.addEventListener('click', () => {
+  closePopup(popupElementProfile);
+});
 
-function formSubmitHandler (evt) {
+
+//КАК МЫ МЕНЯЕМ ИМЯ И РАБОТУ ПРОФИЛЯ
+function SubmitHandler (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   nameInput.textContent = profileName.value;
   jobInput.textContent = profileJob.value;
-    closePopupProfile();
+  closePopup(popupElementProfile);
 }
 
-formElement.addEventListener('submit', formSubmitHandler);
+//ЗАКРЫТИЕ И ОТКРЫТИЕ ПОПАП КАРТОЧКИ
+popupOpenButtonCard.addEventListener('click', () => {
+  openPopup(popupElementCard);
+})
+
+popupCloseButtonCard.addEventListener('click', () => {
+  closePopup(popupElementCard);
+})
+
+
+//
+formElement.addEventListener('submit', SubmitHandler);
 popupOpenButtonProfile.addEventListener('click', openPopupProfile);
-
-
 
 
