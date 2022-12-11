@@ -38,7 +38,7 @@
 @import url("../blocks/popup-contents/__img/popup-contents__img.css");
 @import url("../blocks/popup-contents/__title/popup-contents__title.css");
 @import url("../blocks/popup-contents/__content/popup-contents__content.css");
-@import url("../blocks/popup-card/__window/popup-card__window.css");
+
 @import url("../blocks/popup/_transition/popup_transition.css");
 
 @import url("../blocks/popup-contents/popup-contents.css");
