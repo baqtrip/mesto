@@ -1,11 +1,8 @@
 //поиск наних попапов
 const popupCardWindow = document.querySelector(".popup-window");
-const popupCardWindowImg = popupCardWindow.querySelector(".popup-contents__img")
-const popupCardWindowTitle = popupCardWindow.querySelector(".popup-contents__title")
 const popupElementProfile = document.querySelector('.popup-profile'); 
 const popupElementCard = document.querySelector('.popup-card'); 
-const popupElementCardNameInput = popupElementCard.querySelector('#input-card-name')
-const popupElementCardLinkInput = popupElementCard.querySelector('#input-card-url')
+
 //кнопки закрытия попапов
 const popupCloseWindow = popupCardWindow.querySelector(".popup__close");
 const popupCloseButtonProfile =  popupElementProfile.querySelector('.popup__close')
@@ -16,6 +13,10 @@ const popupOpenButtonCard = document.querySelector('.profile__add');
 const popupOpenButtonProfile = document.querySelector('.profile__edit');
 const popupOpenButtonWindow = document.querySelectorAll('.card__img');
 //Не кнопки
+const popupElementCardNameInput = popupElementCard.querySelector('#input-card-name')
+const popupElementCardLinkInput = popupElementCard.querySelector('#input-card-url')
+const popupCardWindowImg = popupCardWindow.querySelector(".popup-contents__img")
+const popupCardWindowTitle = popupCardWindow.querySelector(".popup-contents__title")
 const profile = document.querySelector('.profile');
 const nameInput = profile.querySelector('.profile__title');
 const jobInput = profile.querySelector('.profile__subtitle');
@@ -61,7 +62,6 @@ function generateCard(dataCard) {
   //Лайки
   likeButton.addEventListener('click', function(evt) {  
     evt.target.classList.toggle('like_active');
-    console.log('поставили лайк')
   });
   trash.addEventListener('click', function() { //Удаляем карточки
     newCard.remove();
