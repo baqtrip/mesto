@@ -1,14 +1,20 @@
 //поиск наних попапов
 const popupCardWindow = document.querySelector(".popup-window");
+const popupCardWindowImg = popupCardWindow.querySelector(".popup-contents__img")
+const popupCardWindowTitle = popupCardWindow.querySelector(".popup-contents__title")
 const popupElementProfile = document.querySelector('.popup-profile'); 
 const popupElementCard = document.querySelector('.popup-card'); 
+const popupElementCardNameInput = popupElementCard.querySelector('#input-card-name')
+const popupElementCardLinkInput = popupElementCard.querySelector('#input-card-url')
 //кнопки закрытия попапов
 const popupCloseWindow = popupCardWindow.querySelector(".popup__close");
 const popupCloseButtonProfile =  popupElementProfile.querySelector('.popup__close')
 const popupCloseButtonCard = popupElementCard.querySelector('.popup__close')
+
 //кнопки открытия попапов
 const popupOpenButtonCard = document.querySelector('.profile__add');
 const popupOpenButtonProfile = document.querySelector('.profile__edit');
+const popupOpenButtonWindow = document.querySelectorAll('.card__img');
 //Не кнопки
 const profile = document.querySelector('.profile');
 const nameInput = profile.querySelector('.profile__title');
@@ -22,30 +28,32 @@ const alt = popupElementCard.querySelector('#input-card-name').value;
 // Функции открытия и закрытия попапа
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  console.log('openPopup')
 }
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-console.log('closePopup')
 }
 
 //ФУНКЦИЯ ДЛЯ СОЗДАНИЯ НОВЫХ КАРТОЧЕК И РАБОТА С НИМИ
 function addCard(evt) { 
   evt.preventDefault(); //сброс дефолт поведение
-  const name = popupElementCard.querySelector('#input-card-name').value;
-  const link = popupElementCard.querySelector('#input-card-url').value;
+  const name = popupElementCardNameInput.value;
+  const link = popupElementCardLinkInput.value;
+
     renderCard({
       name, alt, link  //если свойство === названию переменной, то : не нужна
+      
   })
   closePopup(popupElementCard);
+  evt.target.reset() //очищаем форму
+  return name 
 }
 
 function generateCard(dataCard) {
   const newCard = cardTemplate.cloneNode(true) //клонируем наши новые карточки
   const name = newCard.querySelector('.card__title'); //пусть забирает значения из тайтла
   name.textContent = dataCard.name;
-  const alt = newCard.querySelector('.card__img');
-  alt.link = dataCard.name;
+  const cardImg = newCard.querySelector('.card__img');
+  cardImg.alt = dataCard.name;
   const link = newCard.querySelector('.card__img'); //пусть забирает значения из фоток
   link.src = dataCard.link;
   const likeButton = newCard.querySelector('.like')
@@ -60,23 +68,29 @@ function generateCard(dataCard) {
     console.log('удалили карточку')
   });
 
-  //ЗАКРЫТИЕ И ОТКРЫТИЕ ПОПАП КАРТИНКИ
-  link.addEventListener("click", function (evt) {
+    link.addEventListener("click", function (evt) {
+    popupCardWindowImg.src = dataCard.link;
+    popupCardWindowImg.alt = dataCard.name;
+    popupCardWindowTitle.textContent = dataCard.name;
     openPopup(popupCardWindow);
-    popupCardWindow.querySelector(".popup-contents__img").src = dataCard.link;
-    popupCardWindow.querySelector(".popup-contents__img").alt = dataCard.name;
-    popupCardWindow.querySelector(".popup-contents__title").textContent = dataCard.name;
+    return name;
+    
   });
+  
 
-  popupCloseWindow.addEventListener('click', () => {
-    closePopup(popupCardWindow);
-  });
 
       return newCard; //что нам отдают на выходе
 }
+
+//событие на закрытие попапа окна картинки
+popupCloseWindow.addEventListener('click', () => {
+  closePopup(popupCardWindow);
+  
+});
+
 const formAddCard = document.querySelector('.form_card')
 formAddCard.addEventListener('submit', addCard)
-  
+
 const cardContainer = document.querySelector('.cards')
 const renderCard = (dataCard) => {
   cardContainer.prepend(generateCard(dataCard));
@@ -97,6 +111,16 @@ popupCloseButtonProfile.addEventListener('click', () => {
   closePopup(popupElementProfile);
 });
 
+//ЗАКРЫТИЕ И ОТКРЫТИЕ ПОПАП КАРТОЧКИ
+popupOpenButtonCard.addEventListener('click', () => {
+  openPopup(popupElementCard);
+})
+
+popupCloseButtonCard.addEventListener('click', () => {
+  closePopup(popupElementCard);
+  
+})
+
 
 //КАК МЫ МЕНЯЕМ ИМЯ И РАБОТУ ПРОФИЛЯ
 function submitHandler (evt) {
@@ -106,14 +130,6 @@ function submitHandler (evt) {
   closePopup(popupElementProfile);
 }
 formElement.addEventListener('submit', submitHandler);
-//ЗАКРЫТИЕ И ОТКРЫТИЕ ПОПАП КАРТОЧКИ
-popupOpenButtonCard.addEventListener('click', () => {
-  openPopup(popupElementCard);
-})
-
-popupCloseButtonCard.addEventListener('click', () => {
-  closePopup(popupElementCard);
-})
 
 
 
