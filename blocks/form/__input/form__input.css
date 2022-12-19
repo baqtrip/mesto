@@ -1,4 +1,4 @@
-.form__item {
+.form__input {
   padding-top: 8px;
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
@@ -6,8 +6,12 @@
   width: 100%;
 }
 
+/* .form__input:invalid {
+  border-bottom: 1px solid red;
+} */
+
 @media (max-width: 525px) {
-  .form__item {
+  .form__input {
     max-width: 238px;
     padding-bottom: 13px;
   }

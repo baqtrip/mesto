@@ -1,10 +1,11 @@
+const errors = document.querySelectorAll('.error')
 //поиск наних попапов
-const popupCardWindow = document.querySelector(".popup-window");
+const popupElementWindow = document.querySelector('.popup-window'); 
 const popupElementProfile = document.querySelector('.popup-profile'); 
 const popupElementCard = document.querySelector('.popup-card'); 
 
 //кнопки закрытия попапов
-const popupCloseWindow = popupCardWindow.querySelector(".popup__close");
+const popupCloseWindow = popupElementWindow.querySelector(".popup__close");
 const popupCloseButtonProfile =  popupElementProfile.querySelector('.popup__close')
 const popupCloseButtonCard = popupElementCard.querySelector('.popup__close')
 
@@ -15,16 +16,16 @@ const popupOpenButtonWindow = document.querySelectorAll('.card__img');
 //Не кнопки
 const popupElementCardNameInput = popupElementCard.querySelector('#input-card-name')
 const popupElementCardLinkInput = popupElementCard.querySelector('#input-card-url')
-const popupCardWindowImg = popupCardWindow.querySelector(".popup-contents__img")
-const popupCardWindowTitle = popupCardWindow.querySelector(".popup-contents__title")
+const popupCardWindowImg = popupElementWindow.querySelector(".popup-contents__img")
+const popupCardWindowTitle = popupElementWindow.querySelector(".popup-contents__title")
 const profile = document.querySelector('.profile');
 const nameInput = profile.querySelector('.profile__title');
 const jobInput = profile.querySelector('.profile__subtitle');
 const cardElement = document.querySelector('.card')
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.card'); 
-const formElement = document.querySelector('.form_profile');
-const profileName = formElement.querySelector('#input-name');
-const profileJob = formElement.querySelector('#input-job');
+const formElementProfile = document.querySelector('.form_profile');
+const profileName = formElementProfile.querySelector('#input-name');
+const profileJob = formElementProfile.querySelector('#input-job');
 const alt = popupElementCard.querySelector('#input-card-name').value;
 // Функции открытия и закрытия попапа
 function openPopup(popup) {
@@ -32,6 +33,10 @@ function openPopup(popup) {
 }
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  errors.forEach(error => {
+    error.classList.remove('error_vissible')
+    popup.querySelector('form').reset()
+  }) 
 }
 
 //ФУНКЦИЯ ДЛЯ СОЗДАНИЯ НОВЫХ КАРТОЧЕК И РАБОТА С НИМИ
@@ -72,7 +77,7 @@ function generateCard(dataCard) {
     popupCardWindowImg.src = dataCard.link;
     popupCardWindowImg.alt = dataCard.name;
     popupCardWindowTitle.textContent = dataCard.name;
-    openPopup(popupCardWindow);
+    openPopup(popupElementWindow);
     return name;
     
   });
@@ -84,9 +89,8 @@ function generateCard(dataCard) {
 
 //событие на закрытие попапа окна картинки
 popupCloseWindow.addEventListener('click', () => {
-  closePopup(popupCardWindow);
-  
-});
+  closePopup(popupElementWindow);
+  });
 
 const formAddCard = document.querySelector('.form_card')
 formAddCard.addEventListener('submit', addCard)
@@ -129,7 +133,32 @@ function submitHandler (evt) {
   jobInput.textContent = profileJob.value;
   closePopup(popupElementProfile);
 }
-formElement.addEventListener('submit', submitHandler);
+formElementProfile.addEventListener('submit', submitHandler);
 
 
+//Закрытие попапа по клику на оверлей
+function closePopupByClickOnOverlay(event) {
+  console.log(event.target, event.currentTarget)
+  if (event.target === event.currentTarget) {
+    closePopup(popupElementProfile)
+    closePopup(popupElementCard)
+    closePopup(popupElementWindow)
+  }
+}
+// popupElementProfile.addEventListener('click', closePopupByClickOnOverlay)
+// popupElementCard.addEventListener('click', closePopupByClickOnOverlay)
+// popupElementWindow.addEventListener('click', closePopupByClickOnOverlay)
+[popupElementProfile, popupElementCard, popupElementWindow].forEach(el => el.addEventListener('click', closePopupByClickOnOverlay))
 
+//Закрытие попапа при нажатии на ESC
+
+function closePopupByPressOnEsc(event) {
+  if (event.key === 'Escape') {
+    console.log('Закрываем на esc')
+    closePopup(popupElementProfile);
+    closePopup(popupElementCard);
+    closePopup(popupElementWindow);
+  }
+ 
+}
+window.addEventListener('keydown', closePopupByPressOnEsc)
