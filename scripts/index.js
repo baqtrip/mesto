@@ -35,7 +35,6 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
   errors.forEach(error => {
     error.classList.remove('error_vissible')
-    popup.querySelector('form').reset()
   }) 
 }
 
@@ -122,7 +121,7 @@ popupOpenButtonCard.addEventListener('click', () => {
 
 popupCloseButtonCard.addEventListener('click', () => {
   closePopup(popupElementCard);
-  
+  popupElementCard.querySelector('form').reset()
 })
 
 
@@ -132,6 +131,7 @@ function submitHandler (evt) {
   nameInput.textContent = profileName.value;
   jobInput.textContent = profileJob.value;
   closePopup(popupElementProfile);
+  
 }
 formElementProfile.addEventListener('submit', submitHandler);
 
@@ -142,6 +142,7 @@ function closePopupByClickOnOverlay(event) {
   if (event.target === event.currentTarget) {
     closePopup(popupElementProfile)
     closePopup(popupElementCard)
+    popupElementCard.querySelector('form').reset()
     closePopup(popupElementWindow)
   }
 }
@@ -157,6 +158,7 @@ function closePopupByPressOnEsc(event) {
     console.log('Закрываем на esc')
     closePopup(popupElementProfile);
     closePopup(popupElementCard);
+    popupElementCard.querySelector('form').reset()
     closePopup(popupElementWindow);
   }
  

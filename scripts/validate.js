@@ -1,27 +1,52 @@
+enableValidation({
+  formSelector: '.form_card', 
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__save',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'error_border',
+  errorClass: 'error_vissible'
+})
+enableValidation({
+  formSelector: '.form_profile', 
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__save',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'error_border',
+  errorClass: 'error_vissible'
+})
 
-
-// enableValidation({
-//   formSelector: '.popup__form',
-//   inputSelector: '.popup__input',
-//   submitButtonSelector: '.popup__button',
-//   inactiveButtonClass: 'popup__button_disabled',
-//   inputErrorClass: 'popup__input_type_error',
-//   errorClass: 'popup__error_visible'
-// });
-const forms = document.querySelectorAll('.form') //ищем формы
-// const redInputs = forms.querySelector('.form__input')
 
 function enableValidation(config) {
   const form = document.querySelector(config.formSelector)
-  const inputs = document.querySelectorAll(config.inputSelector)
+  const inputs = form.querySelectorAll(config.inputSelector)
   const submitButton = form.querySelector(config.submitButtonSelector)
-  // const errors = form.querySelectorAll(config.errorClass)
+    submitButton.disabled = true
+
   form.addEventListener('submit', (evt) => {
     evt.preventDefault()
-      })
+    submitButton.disabled = true
+    submitButton.classList.add('button_inactive');
+  })
+
+  function isInValid(inputList) {
+    return inputList.some(input => 
+     !input.validity.valid)
+  }
+
+  function toggleButtonState(inputList, buttonElement) {
+        if (isInValid(inputList)) {
+       // сделай кнопку неактивной
+      buttonElement.disabled = true
+        buttonElement.classList.add('button_inactive');
+     } else {
+       // иначе сделай кнопку активной
+      buttonElement.disabled = false;
+        buttonElement.classList.remove('button_inactive');
+     }
+   }
+
   inputs.forEach(input => {
     input.addEventListener('input', () => {
-      console.log(input.id)
       const error = form.querySelector(`.${input.id}-error`)
       console.log(input.validity)
       //проверим валидность импута
@@ -30,43 +55,16 @@ function enableValidation(config) {
         //убираем ошибку 
         input.classList.remove(config.inputErrorClass)
         error.classList.remove(config.errorClass)
+
       } else {
         //ставим ошибку 
         error.classList.add(config.errorClass)
         input.classList.add(config.inputErrorClass)
         error.textContent = input.validationMessage
+
       }
-      //прячем кнопку
-      const IsformValid = input.validity.valid
-      if (IsformValid) {
-        console.log('Валидно, можно сохранять')
-        
-        submitButton.disabled = false
-        submitButton.classList.remove('button_inactive')
-      } else {
-        console.log('Не валидно, нельзя сохранять')
-        
-        submitButton.disabled = true
-        submitButton.classList.add('button_inactive')
-      }
-      
+      console.log(Array.from(inputs))
+      toggleButtonState(Array.from(inputs), submitButton);      
     })
   })
 }
-enableValidation({
-  formSelector: '.form_profile',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.form__save',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'error_border',
-  errorClass: 'error_vissible'
-
-})
-// forms.forEach(form => { 
-//   // const inputs = form.querySelectorAll('.form__input');
-//   // const submitButton = form.querySelector('.form__save') 
- 
-  
-// })
-
-
