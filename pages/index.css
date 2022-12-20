@@ -50,4 +50,4 @@
 @import url("../blocks/error/error.css");
 @import url("../blocks/error/_border/error_border.css");
 @import url("../blocks/error/_vissible/error_vissible.css");
-@import url("../blocks/form/_inactive/form_inactive.css");
+@import url("../blocks/form/__save/_inactive/form__save_inactive.css");
