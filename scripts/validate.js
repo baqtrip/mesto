@@ -25,7 +25,7 @@ function enableValidation(config) {
   form.addEventListener('submit', (evt) => {
     evt.preventDefault()
     submitButton.disabled = true
-    submitButton.classList.add('button_inactive');
+    submitButton.classList.add('form_inactive');
   })
 
   function isInValid(inputList) {
@@ -37,11 +37,11 @@ function enableValidation(config) {
         if (isInValid(inputList)) {
        // сделай кнопку неактивной
       buttonElement.disabled = true
-        buttonElement.classList.add('button_inactive');
+        buttonElement.classList.add('form_inactive');
      } else {
        // иначе сделай кнопку активной
       buttonElement.disabled = false;
-        buttonElement.classList.remove('button_inactive');
+        buttonElement.classList.remove('form_inactive');
      }
    }
 
