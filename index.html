@@ -16,11 +16,15 @@
     <main class="main">
         <section class="profile">
             <img class="profile__photo" src="./images/image.jpg" alt="Фото профиля.">
-            <div class="profile__column">
-                <h1 class="profile__title">Жак-Ив Кусто</h1>
-                <button class="profile__edit" type="button" aria-label="Редактировать профиль"></button>
+            <div class="profile__columns">
+                <div class="profile__column">
+                    <h1 class="profile__title">Жак-Ив Кусто</h1>
+                    <button class="profile__edit" type="button" aria-label="Редактировать профиль"></button>
+                </div>
                 <p class="profile__subtitle">Исследователь океана</p>
             </div>
+
+
             <button class="profile__add" type="button" aria-label="Добавить фото"></button>
         </section>
         <section class="elements">
@@ -29,7 +33,7 @@
             </ul>
         </section>
         <footer class="footer">
-            <p class="footer__copyright">&COPY; 2020 Mesto Russia</p>
+            <p class="footer__copyright">&COPY; 2023 Mesto Russia</p>
         </footer>
     </main>
     <div class="popup popup-profile popup_transition">
@@ -38,12 +42,16 @@
             <form class='form form_profile' novalidate>
                 <h2 class="form__title">Редактировать профиль</h2>
                 <fieldset class="form__fieldset">
-                    <input type='text' class='form__input' id='input-name' name='input-name' placeholder="Ваше Имя"
-                        required minlength="2" maxlength="40">
-                    <span id="name-error" class="error input-name-error"></span>
-                    <input type='text' class='form__input ' id='input-job' name='input-job'
-                        placeholder="Род деятельности" required minlength="2" maxlength="200">
-                    <span id="job-error" class="error input-job-error"></span>
+                    <div class="form__error">
+                        <input type='text' class='form__input' id='input-name' name='input-name' placeholder="Ваше Имя"
+                            required minlength="2" maxlength="40">
+                        <span id="name-error" class="error input-name-error"></span>
+                    </div>
+                    <div class="form__error">
+                        <input type='text' class='form__input ' id='input-job' name='input-job'
+                            placeholder="Род деятельности" required minlength="2" maxlength="200">
+                        <span id="job-error" class="error input-job-error"></span>
+                    </div>
                 </fieldset>
                 <button class="form__save" type="submit" aria-label="сохранить изменения">Сохранить</button>
             </form>
@@ -56,12 +64,16 @@
             <form class='form form_card' novalidate>
                 <h2 class="form__title">Новое место</h2>
                 <fieldset class="form__fieldset">
-                    <input type='text' class='form__input' id='input-card-name' name='input-name' placeholder="Название"
-                        required minlength="2" maxlength="30">
-                    <span id="name-card-error" class="error input-card-name-error"></span>
-                    <input type='url' class='form__input' id='input-card-url' name='input-job'
-                        placeholder="Ссылка на картинку" required>
-                    <span id="name-url-error" class="error input-card-url-error"></span>
+                    <div class="form__error">
+                        <input type='text' class='form__input' id='input-card-name' name='input-name'
+                            placeholder="Название" required minlength="2" maxlength="30">
+                        <span id="name-card-error" class="error input-card-name-error"></span>
+                    </div>
+                    <div class="form__error">
+                        <input type='url' class='form__input' id='input-card-url' name='input-job'
+                            placeholder="Ссылка на картинку" required>
+                        <span id="name-url-error" class="error input-card-url-error"></span>
+                    </div>
                 </fieldset>
                 <button class="form__save form__save_inactive" type="submit"
                     aria-label="сохранить изменения">Сохранить</button>

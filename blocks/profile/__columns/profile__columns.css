@@ -1,0 +1,12 @@
+.profile__columns {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+}
+
+@media (max-width: 750px) {
+  .profile__columns {
+    align-items: center;
+  }
+}

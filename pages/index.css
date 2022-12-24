@@ -44,10 +44,11 @@
 @import url("../blocks/popup-contents/popup-contents.css");
 
 @import url("../blocks/img/__content/img__content.css");
-
+@import url("../blocks/form/__error/form__error.css");
 @import url("../blocks/form/__input/_error/form__input_error.css");
 @import url("../blocks/form/__input/__input-error/form__input-error.css");
 @import url("../blocks/error/error.css");
 @import url("../blocks/error/_border/error_border.css");
 @import url("../blocks/error/_vissible/error_vissible.css");
 @import url("../blocks/form/__save/_inactive/form__save_inactive.css");
+@import url("../blocks/profile/__columns/profile__columns.css");

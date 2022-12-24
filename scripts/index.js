@@ -30,12 +30,10 @@ const alt = popupElementCard.querySelector('#input-card-name').value;
 // Функции открытия и закрытия попапа
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  window.addEventListener('keydown', closePopupByPressOnEsc)
 }
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  errors.forEach(error => {
-    error.classList.remove('error_vissible')
-  }) 
 }
 
 //ФУНКЦИЯ ДЛЯ СОЗДАНИЯ НОВЫХ КАРТОЧЕК И РАБОТА С НИМИ
@@ -82,7 +80,6 @@ function generateCard(dataCard) {
   });
   
 
-
       return newCard; //что нам отдают на выходе
 }
 
@@ -110,6 +107,8 @@ popupOpenButtonProfile.addEventListener('click', () => {
   profileJob.value = jobInput.textContent;
 });
 
+
+
 popupCloseButtonProfile.addEventListener('click', () => {
   closePopup(popupElementProfile);
 });
@@ -124,7 +123,6 @@ popupCloseButtonCard.addEventListener('click', () => {
   popupElementCard.querySelector('form').reset()
 })
 
-
 //КАК МЫ МЕНЯЕМ ИМЯ И РАБОТУ ПРОФИЛЯ
 function submitHandler (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
@@ -135,20 +133,13 @@ function submitHandler (evt) {
 }
 formElementProfile.addEventListener('submit', submitHandler);
 
-
 //Закрытие попапа по клику на оверлей
 function closePopupByClickOnOverlay(event) {
   console.log(event.target, event.currentTarget)
   if (event.target === event.currentTarget) {
-    closePopup(popupElementProfile)
-    closePopup(popupElementCard)
-    popupElementCard.querySelector('form').reset()
-    closePopup(popupElementWindow)
-  }
+    closePopup(event.target)
+      }
 }
-// popupElementProfile.addEventListener('click', closePopupByClickOnOverlay)
-// popupElementCard.addEventListener('click', closePopupByClickOnOverlay)
-// popupElementWindow.addEventListener('click', closePopupByClickOnOverlay)
 [popupElementProfile, popupElementCard, popupElementWindow].forEach(el => el.addEventListener('click', closePopupByClickOnOverlay))
 
 //Закрытие попапа при нажатии на ESC
@@ -156,11 +147,10 @@ function closePopupByClickOnOverlay(event) {
 function closePopupByPressOnEsc(event) {
   if (event.key === 'Escape') {
     console.log('Закрываем на esc')
-    closePopup(popupElementProfile);
-    closePopup(popupElementCard);
+    closePopup(document.querySelector('.popup_opened'))
     popupElementCard.querySelector('form').reset()
-    closePopup(popupElementWindow);
-  }
- 
-}
-window.addEventListener('keydown', closePopupByPressOnEsc)
+    window.removeEventListener('keydown', closePopupByPressOnEsc);
+    }
+ }
+
+

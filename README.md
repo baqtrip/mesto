@@ -22,6 +22,6 @@
 
 ## Используемые технологии
 
-**_HTML / CSS / BEM jSS /_**
+**_HTML / CSS / BEM / JS /_**
 
 GH Pages https://baqtrip.github.io/mesto/
