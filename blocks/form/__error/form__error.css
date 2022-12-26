@@ -1,3 +1,4 @@
 .form__error {
-  min-height: 44px;
+  min-height: 41px;
+  max-height: 41px;
 }

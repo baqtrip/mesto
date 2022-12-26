@@ -76,16 +76,14 @@ function generateCard(dataCard) {
     popupCardWindowTitle.textContent = dataCard.name;
     openPopup(popupElementWindow);
     return name;
-    
-  });
-  
-
-      return newCard; //что нам отдают на выходе
+      });
+        return newCard; //что нам отдают на выходе
 }
 
 //событие на закрытие попапа окна картинки
 popupCloseWindow.addEventListener('click', () => {
   closePopup(popupElementWindow);
+  window.removeEventListener('keydown', closePopupByPressOnEsc);
   });
 
 const formAddCard = document.querySelector('.form_card')
@@ -129,7 +127,6 @@ function submitHandler (evt) {
   nameInput.textContent = profileName.value;
   jobInput.textContent = profileJob.value;
   closePopup(popupElementProfile);
-  
 }
 formElementProfile.addEventListener('submit', submitHandler);
 
@@ -146,10 +143,8 @@ function closePopupByClickOnOverlay(event) {
 
 function closePopupByPressOnEsc(event) {
   if (event.key === 'Escape') {
-    console.log('Закрываем на esc')
     closePopup(document.querySelector('.popup_opened'))
-    popupElementCard.querySelector('form').reset()
-    window.removeEventListener('keydown', closePopupByPressOnEsc);
+    
     }
  }
 

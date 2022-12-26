@@ -38,8 +38,6 @@ const setEventListeners = (formElement, config) => {
 };
 
 
-// enableValidation();
-
 function hasInvalidInput(inputList) {
 return inputList.some((inputElement) => {
   return !inputElement.validity.valid;
@@ -56,15 +54,15 @@ function toggleButtonState (inputList, buttonElement, inactiveButtonClass) {
     buttonElement.disabled = false
     buttonElement.classList.remove(inactiveButtonClass);
   }
-}
+};
 
 const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', function (evt) {
       evt.preventDefault();
-      
-    });
+      setEventListeners(formElement, config)
+      });
 
 setEventListeners(formElement, config)
   });
