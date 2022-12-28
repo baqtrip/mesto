@@ -34,6 +34,7 @@ function openPopup(popup) {
 }
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  window.removeEventListener('keydown', closePopupByPressOnEsc);
 }
 
 //ФУНКЦИЯ ДЛЯ СОЗДАНИЯ НОВЫХ КАРТОЧЕК И РАБОТА С НИМИ
@@ -83,7 +84,7 @@ function generateCard(dataCard) {
 //событие на закрытие попапа окна картинки
 popupCloseWindow.addEventListener('click', () => {
   closePopup(popupElementWindow);
-  window.removeEventListener('keydown', closePopupByPressOnEsc);
+  
   });
 
 const formAddCard = document.querySelector('.form_card')
